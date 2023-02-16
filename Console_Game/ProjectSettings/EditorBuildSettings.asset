@@ -9,9 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Arcade_Game1.unity
     guid: cc1630fd8a07d3e41abadb6499f27710
   - enabled: 0
-    path: Assets/Scenes/Game1.unity
+    path: 
     guid: e73737f929ec50444a21b12bd02c4039
   - enabled: 1
-    path: Assets/Scenes/Game_Scene.unity
+    path: Assets/Scenes/HUB.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Arcade_Game2.unity
+    guid: 5481ce82f788614478d0b6f2131b9751
+  - enabled: 1
+    path: Assets/Scenes/Arcade_Game3.unity
+    guid: 6f7623f2c2b4b2842bf87c18c22fdf8a
   m_configObjects: {}
