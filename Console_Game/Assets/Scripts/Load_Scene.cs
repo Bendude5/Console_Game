@@ -19,6 +19,6 @@ public class Load_Scene : MonoBehaviour
 
     void loadScene()
     {
-        SceneManager.LoadScene("Arcade_Game1");
+        SceneManager.LoadScene("Ben_Arcade_Game");
     }
 }
