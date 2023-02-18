@@ -8,6 +8,18 @@ public class Bens_Movement : MonoBehaviour
 
     //public Animator playerAnim;
 
+    public int health;
+
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
+
+    public int keys;
+
+    public GameObject key1;
+    public GameObject key2;
+    public GameObject key3;
+
     public float speed = 6f;
 
     public float turnSmoothTime = 0.1f;
@@ -31,5 +43,84 @@ public class Bens_Movement : MonoBehaviour
         {
             //playerAnim.SetFloat("Speed", 0.0f);
         }
+
+        if (health == 3)
+        {
+            heart1.SetActive(true);
+            heart2.SetActive(true);
+            heart3.SetActive(true);
+        }
+
+        if (health == 2)
+        {
+            heart1.SetActive(false);
+            heart2.SetActive(true);
+            heart3.SetActive(true);
+        }
+
+        if (health == 1)
+        {
+            heart1.SetActive(false);
+            heart2.SetActive(false);
+            heart3.SetActive(true);
+        }
+
+        if (health == 0)
+        {
+            heart1.SetActive(false);
+            heart2.SetActive(false);
+            heart3.SetActive(false);
+        }
+
+
+
+
+        if (keys == 0)
+        {
+            key1.SetActive(false);
+            key2.SetActive(false);
+            key3.SetActive(false);
+        }
+
+        if (keys == 1)
+        {
+            key1.SetActive(true);
+            key2.SetActive(false);
+            key3.SetActive(false);
+        }
+
+        if (keys == 2)
+        {
+            key1.SetActive(true);
+            key2.SetActive(true);
+            key3.SetActive(false);
+        }
+
+        if (keys == 3)
+        {
+            key1.SetActive(true);
+            key2.SetActive(true);
+            key3.SetActive(true);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "Enemy_Attack":
+                loseHealth();
+                break;
+        }
+    }
+
+    public void loseHealth()
+    {
+        health -= 1;
+    }
+
+    public void addKey()
+    {
+        keys += 1;
     }
 }

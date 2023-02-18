@@ -12,6 +12,7 @@ public class Enemy_Movement : MonoBehaviour
     public float chaseSpeed;
     public bool canMove;
     public GameObject detectionSphere;
+    public GameObject attackSphere;
 
     public Animator anim;
 
@@ -40,51 +41,77 @@ public class Enemy_Movement : MonoBehaviour
         {
             if (detectionSphere.GetComponent<DetectionSphere>().playerDetected == false)
             {
-                agent.speed = speed;
-                timer += Time.deltaTime;
-                if (timer >= wanderTimer)
+                if (attackSphere.GetComponent<Attack_Sphere>().attacking == false)
                 {
-                    //anim.SetInteger("Anim_Number", 1);
-                    Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-                    agent.SetDestination(newPos);
-                    timer = 0;
+                    //agent.velocity = Vector3.one;
+                    //agent.isStopped = false;
+                    agent.speed = speed;
+                    timer += Time.deltaTime;
+                    if (timer >= wanderTimer)
+                    {
+                        //anim.SetInteger("Anim_Number", 1);
+                        Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+                        agent.SetDestination(newPos);
+                        timer = 0;
 
-                    //if (agent.transform.position == newPos)
-                    //{
-                    //    Debug.Log("NotArrived");
-                    //}
-                }
+                        //if (agent.transform.position == newPos)
+                        //{
+                        //    Debug.Log("NotArrived");
+                        //}
+                    }
 
-                if (agent.velocity == Vector3.zero)
-                {
-                    anim.SetInteger("Anim_Number", 1);
-                }
+                    if (agent.velocity == Vector3.zero)
+                    {
+                        anim.SetInteger("Anim_Number", 1);
+                    }
 
-                if (agent.velocity != Vector3.zero)
-                {
-                    anim.SetInteger("Anim_Number", 2);
+                    if (agent.velocity != Vector3.zero)
+                    {
+                        anim.SetInteger("Anim_Number", 2);
+                    }
                 }
             }
 
             if (detectionSphere.GetComponent<DetectionSphere>().playerDetected == true)
             {
-                playerLocation.x = player.position.x;
-                playerLocation.y = player.position.y;
-                playerLocation.z = player.position.z;
-
-                agent.SetDestination(playerLocation);
-
-                agent.speed = chaseSpeed;
-
-                if (agent.velocity == Vector3.zero)
+                if (attackSphere.GetComponent<Attack_Sphere>().attacking == false)
                 {
-                    anim.SetInteger("Anim_Number", 1);
-                }
+                    //agent.velocity = Vector3.one;
+                    //agent.isStopped = false;
 
-                if (agent.velocity != Vector3.zero)
-                {
-                    anim.SetInteger("Anim_Number", 3);
+                    playerLocation.x = player.position.x;
+                    playerLocation.y = player.position.y;
+                    playerLocation.z = player.position.z;
+
+                    agent.SetDestination(playerLocation);
+
+                    agent.speed = chaseSpeed;
+
+                    if (agent.velocity == Vector3.zero)
+                    {
+                        anim.SetInteger("Anim_Number", 1);
+                    }
+
+                    if (agent.velocity != Vector3.zero)
+                    {
+                        anim.SetInteger("Anim_Number", 3);
+                    }
                 }
+            }
+
+            if (attackSphere.GetComponent<Attack_Sphere>().attacking == true)
+            {
+                agent.velocity = Vector3.zero;
+                //agent.speed = 0;
+                //agent.velocity = Vector3.zero;
+                //agent.isStopped = true;
+                anim.SetInteger("Anim_Number", 4);
+            }
+
+            if (attackSphere.GetComponent<Attack_Sphere>().attacking == false)
+            {
+                //agent.velocity = Vector3.one;
+                //agent.isStopped = false;
             }
         }
     }
