@@ -14,6 +14,11 @@ public class Bens_Movement : MonoBehaviour
 
     public Animator anim;
 
+    public AudioSource audioSource;
+    public AudioClip attackSound;
+    public AudioClip itemSound;
+    public AudioClip damageSound;
+
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
@@ -150,16 +155,23 @@ public class Bens_Movement : MonoBehaviour
 
     public void loseHealth()
     {
+        audioSource.PlayOneShot(damageSound);
         health -= 1;
     }
 
     public void addKey()
     {
+        audioSource.PlayOneShot(itemSound);
         keys += 1;
     }
 
     public void endAttack()
     {
         anim.SetInteger("Anim_Number", 1);
+    }
+
+    public void playAttackSound()
+    {
+        audioSource.PlayOneShot(attackSound);
     }
 }

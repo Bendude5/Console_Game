@@ -15,6 +15,10 @@ public class Enemy_Movement : MonoBehaviour
     public GameObject detectionSphere;
     public GameObject attackSphere;
 
+    public AudioSource audioSource;
+    public AudioClip attackSound;
+    public AudioClip deathSound;
+
     public Animator anim;
 
     Vector3 playerLocation;
@@ -148,5 +152,15 @@ public class Enemy_Movement : MonoBehaviour
     {
         Destroy(gameObject);
         GameObject.Find("Spawner_Manager").GetComponent<Spawner_Manager>().spawnEnemies();
+    }
+
+    public void playAttackSound()
+    {
+        audioSource.PlayOneShot(attackSound);
+    }
+
+    public void playDeathSound()
+    {
+        audioSource.PlayOneShot(deathSound);
     }
 }
