@@ -40,7 +40,8 @@ public class Bens_Movement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            anim.SetInteger("Anim_Number", 2);
+            canMove = false;
+            anim.SetInteger("Anim_Number", 3);
         }
 
         if (canMove == true)
@@ -57,10 +58,17 @@ public class Bens_Movement : MonoBehaviour
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
+                anim.SetInteger("Anim_Number", 2);
                 Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                 controller.Move(moveDir.normalized * speed * Time.deltaTime);
             }
+
+            if (direction.magnitude <= 0.1f)
+            {
+                anim.SetInteger("Anim_Number", 1);
+            }
+
+
             //Applies gravity to the player
             direction.y -= gravity;
 
@@ -167,6 +175,7 @@ public class Bens_Movement : MonoBehaviour
 
     public void endAttack()
     {
+        canMove = true;
         anim.SetInteger("Anim_Number", 1);
     }
 

@@ -12134,7 +12134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  chaseSpeed: 3
+  chaseSpeed: 5
   canMove: 1
   isDead: 0
   detectionSphere: {fileID: 5037213470939997151}
