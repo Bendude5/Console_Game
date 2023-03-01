@@ -4,13 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy_Attack
-  - Key
+  - Coin
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Roof
+  - 
   - Water
   - UI
   - 
