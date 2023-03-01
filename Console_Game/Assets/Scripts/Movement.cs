@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
     public Animator playerAnim;
     public Camera followCam;
 
+    public int sceneNum;
+
     public float speed = 6f;
     public float jumpSpeed = 0.5f;
     private float yDir;
@@ -21,7 +23,6 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
