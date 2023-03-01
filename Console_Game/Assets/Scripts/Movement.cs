@@ -19,59 +19,59 @@ public class Movement : MonoBehaviour
 
     public float rotationspeed = 90f;
     public float turnSmoothTime = 0.1f;
-    float turnSmoothVelocity;   
+    float turnSmoothVelocity;
+
+    public bool enteringArcade;
 
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-
-        Vector3 direction = Quaternion.Euler(0, followCam.transform.eulerAngles.y, 0) * new Vector3(horizontal, 0f, vertical).normalized;
-
-        
-        if (controller.isGrounded)
+        if (enteringArcade == false)
         {
-            verticalSpeed = 0;
-            yDir = 0f;
-            Debug.Log("grounded");
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
 
-            if (Input.GetKey("space"))
+            Vector3 direction = Quaternion.Euler(0, followCam.transform.eulerAngles.y, 0) * new Vector3(horizontal, 0f, vertical).normalized;
+
+
+            if (controller.isGrounded)
             {
-                yDir = jumpSpeed;
+                verticalSpeed = 0;
+                yDir = 0f;
+                Debug.Log("grounded");
+
+                if (Input.GetKey("space"))
+                {
+                    yDir = jumpSpeed;
+                }
+            }
+            else
+            {
+                verticalSpeed -= gravity * Time.deltaTime;
+                Debug.Log("not grounded");
+            }
+
+
+            yDir += Physics.gravity.y * Time.deltaTime;
+            direction.y = yDir;
+
+
+            Vector3 gravityMove = new Vector3(0, verticalSpeed, 0);
+            controller.Move(gravityMove * Time.deltaTime);
+
+            if (direction.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                playerAnim.SetFloat("Speed", 1.0f);
+
+                controller.Move(direction * speed * Time.deltaTime);
+
+            }
+            else
+            {
+                playerAnim.SetFloat("Speed", 0.0f);
             }
         }
-        else
-        {
-            verticalSpeed -= gravity * Time.deltaTime;
-            Debug.Log("not grounded");
-        }
-                
-
-        yDir += Physics.gravity.y * Time.deltaTime;
-        direction.y = yDir;
-
-
-        Vector3 gravityMove = new Vector3(0, verticalSpeed, 0);
-        controller.Move(gravityMove * Time.deltaTime);
-
-        if (direction.magnitude >= 0.1f)
-        {          
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            playerAnim.SetFloat("Speed", 1.0f);
-
-            controller.Move(direction * speed * Time.deltaTime);
-
-        }
-        else
-        {
-            playerAnim.SetFloat("Speed", 0.0f);
-        }
-
-        
-
     }
-
-
 }

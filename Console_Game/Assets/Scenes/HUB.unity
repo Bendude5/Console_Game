@@ -102299,6 +102299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8830025924318789208}
   playerAnim: {fileID: 8830025924318789207}
+  followCam: {fileID: 963194227}
+  sceneNum: 0
   speed: 6
   jumpSpeed: 2.6
   verticalSpeed: 0
