@@ -14,11 +14,19 @@ public class Game_Load : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            this.loadScene();
+        }
     }
 
-    void loadScene()
+    public void loadScene()
     {
-        SceneManager.LoadScene("Game_Scene");
+        SceneManager.LoadScene("Cutscene");
+    }
+
+    public void exitGame()
+    {
+        Application.Quit();
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bens_Movement : MonoBehaviour
 {
@@ -117,6 +118,7 @@ public class Bens_Movement : MonoBehaviour
             heart1.SetActive(false);
             heart2.SetActive(false);
             heart3.SetActive(false);
+            SceneManager.LoadScene("HUB");
         }
 
 

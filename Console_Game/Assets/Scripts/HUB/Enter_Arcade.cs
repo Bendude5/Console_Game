@@ -8,6 +8,8 @@ public class Enter_Arcade : MonoBehaviour
     public GameObject arcade2;
     public GameObject arcade3;
 
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class Enter_Arcade : MonoBehaviour
                 if(Input.GetKey(KeyCode.E))
                 {
                     arcade1.GetComponent<Animator>().SetInteger("Anim_Number", 1);
+                    player.GetComponent<Movement>().enteringArcade = true;
                     Debug.Log("Entered arcade 1");
                 }
                 break;
@@ -36,6 +39,7 @@ public class Enter_Arcade : MonoBehaviour
                 if (Input.GetKey(KeyCode.E))
                 {
                     arcade2.GetComponent<Animator>().SetInteger("Anim_Number", 1);
+                    player.GetComponent<Movement>().enteringArcade = true;
                     Debug.Log("Entered arcade 2");
                 }
                 break;
@@ -44,6 +48,7 @@ public class Enter_Arcade : MonoBehaviour
                 if (Input.GetKey(KeyCode.E))
                 {
                     arcade3.GetComponent<Animator>().SetInteger("Anim_Number", 1);
+                    player.GetComponent<Movement>().enteringArcade = true;
                     Debug.Log("Entered arcade 3");
                 }
                 break;

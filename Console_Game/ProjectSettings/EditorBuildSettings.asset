@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Arcade_Game1.unity
-    guid: cc1630fd8a07d3e41abadb6499f27710
-  - enabled: 0
-    path: 
-    guid: e73737f929ec50444a21b12bd02c4039
+    path: Assets/Scenes/Menu.unity
+    guid: 842bc89e0d79fad45a998d062567e7ea
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: cde7bc7b97782244481f0801e763e657
   - enabled: 1
     path: Assets/Scenes/HUB.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Arcade_Game3.unity
     guid: 6f7623f2c2b4b2842bf87c18c22fdf8a
+  - enabled: 1
+    path: Assets/Scenes/Arcade_Game1.unity
+    guid: 6790accfbbaecfc4b946f3e62a41cf57
   m_configObjects: {}
