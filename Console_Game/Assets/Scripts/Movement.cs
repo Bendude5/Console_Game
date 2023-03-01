@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
     public CharacterController controller;
     public Animator playerAnim;
+    public Camera followCam;
 
     public float speed = 6f;
     public float jumpSpeed = 0.5f;
@@ -24,7 +25,7 @@ public class Movement : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        Vector3 direction = Quaternion.Euler(0, followCam.transform.eulerAngles.y, 0) * new Vector3(horizontal, 0f, vertical).normalized;
 
         
         if (controller.isGrounded)

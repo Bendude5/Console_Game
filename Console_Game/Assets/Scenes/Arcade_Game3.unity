@@ -1165,6 +1165,7 @@ GameObject:
   - component: {fileID: 927053380}
   - component: {fileID: 927053379}
   - component: {fileID: 927053378}
+  - component: {fileID: 927053382}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1189,7 +1190,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.63, z: 0}
+  m_Center: {x: 0, y: 0.82, z: 0}
 --- !u!114 &927053379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1204,6 +1205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 927053378}
   playerAnim: {fileID: 927053380}
+  followCam: {fileID: 1821426457}
   speed: 6
   jumpSpeed: 2.6
   verticalSpeed: 0
@@ -1246,6 +1248,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &927053382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927053376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5cd31219550a040918297184853479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraObj: {fileID: 1821426457}
+  player: {fileID: 927053376}
 --- !u!1 &930074673
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,7 +2507,7 @@ GameObject:
   - component: {fileID: 1821426456}
   - component: {fileID: 1821426455}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2504,7 +2520,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821426454}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 605972182d06ec54ea486cdad7249eb6, type: 3}
   m_Name: 
@@ -2548,7 +2564,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
