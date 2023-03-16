@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Enter_Arcade : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Enter_Arcade : MonoBehaviour
     public GameObject arcade3;
 
     public GameObject player;
+
+    //public ButtonControl this[GamepadButton button] { get; }
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +30,8 @@ public class Enter_Arcade : MonoBehaviour
         switch (other.name)
         {
             case "Arcade_Machine_1":
-                if(Input.GetKey(KeyCode.E))
+                //if(Input.GetKey(KeyCode.E))
+                //if(InputControl.Gamepad.leftStick.x)
                 {
                     arcade1.GetComponent<Animator>().SetInteger("Anim_Number", 1);
                     player.GetComponent<Movement>().enteringArcade = true;
