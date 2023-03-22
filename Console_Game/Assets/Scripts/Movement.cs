@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    Console_Game playerControls;
     public CharacterController controller;
     public Animator playerAnim;
     public Camera followCam;
+
+    public bool canjump;
 
     public int sceneNum;
 
@@ -23,6 +27,28 @@ public class Movement : MonoBehaviour
 
     public bool enteringArcade;
 
+    void Awake()
+    {
+        playerControls = new Console_Game();
+
+        playerControls.Player.Interact.performed += ctx => jump();
+
+        //TEST SAVE
+        playerControls.Player.Save.performed += ctx => savePlayer();
+        //TEST LOAD
+        playerControls.Player.Load.performed += ctx => loadPlayer();
+    }
+
+    void OnEnable()
+    {
+        playerControls.Player.Enable();
+    }
+
+    void OnDisable()
+    {
+        playerControls.Player.Disable();
+    }
+
     void Update()
     {
         if (enteringArcade == false)
@@ -38,14 +64,17 @@ public class Movement : MonoBehaviour
                 verticalSpeed = 0;
                 yDir = 0f;
                 Debug.Log("grounded");
+                canjump = true;
 
                 if (Input.GetKey("space"))
                 {
-                    yDir = jumpSpeed;
+                    jump();
+                    //yDir = jumpSpeed;
                 }
             }
             else
             {
+                canjump = false;
                 verticalSpeed -= gravity * Time.deltaTime;
                 Debug.Log("not grounded");
             }
@@ -73,5 +102,36 @@ public class Movement : MonoBehaviour
                 playerAnim.SetFloat("Speed", 0.0f);
             }
         }
+    }
+
+    public void jump()
+    {
+        if (canjump == true)
+        {
+            yDir = jumpSpeed;
+        }
+    }
+
+    //TEST SAVE
+    public void savePlayer()
+    {
+        enteringArcade = false;
+        SaveSystem.savePlayer(this);
+    }
+
+    //TEST LOAD
+    public void loadPlayer()
+    {
+        enteringArcade = true;
+
+        SavePlayerData data = SaveSystem.loadPlayer();
+
+        Vector3 position;
+
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+
+        transform.position = position;
     }
 }

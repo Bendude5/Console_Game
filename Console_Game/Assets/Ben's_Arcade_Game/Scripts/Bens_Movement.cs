@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Bens_Movement : MonoBehaviour
 {
+    Console_Game playerControls;
+
     public CharacterController controller;
 
     //public Animator playerAnim;
@@ -37,12 +40,28 @@ public class Bens_Movement : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
+    void Awake()
+    {
+        playerControls = new Console_Game();
+
+        playerControls.Player.Attack.performed += ctx => Attack();
+    }
+
+    void OnEnable()
+    {
+        playerControls.Player.Enable();
+    }
+
+    void OnDisable()
+    {
+        playerControls.Player.Disable();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            canMove = false;
-            anim.SetInteger("Anim_Number", 3);
+            Attack();
         }
 
         if (canMove == true)
@@ -161,6 +180,12 @@ public class Bens_Movement : MonoBehaviour
                 loseHealth();
                 break;
         }
+    }
+
+    public void Attack()
+    {
+        canMove = false;
+        anim.SetInteger("Anim_Number", 3);
     }
 
     public void loseHealth()
