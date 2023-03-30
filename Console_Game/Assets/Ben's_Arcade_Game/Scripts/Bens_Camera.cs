@@ -8,6 +8,10 @@ public class Bens_Camera : MonoBehaviour
     public Transform player;
     public Vector3 cameraPos;
 
+    public int cameraXAmount;
+    public int cameraYAmount;
+    public int cameraZAmount;
+
     public float xPosition;
     public float yPosition;
     public float zPosition;
@@ -25,9 +29,9 @@ public class Bens_Camera : MonoBehaviour
 
         transform.position = new Vector3(xPosition, yPosition, zPosition);
 
-        xPosition = player.position.x;
-        yPosition = 42;
-        zPosition = player.position.z;
+        xPosition = player.position.x + cameraXAmount;
+        yPosition = player.position.y + cameraYAmount;
+        zPosition = player.position.z + cameraZAmount;
 
     }
 }
