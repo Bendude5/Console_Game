@@ -11,6 +11,8 @@ public class Boss_Health : MonoBehaviour
 
     public GameObject healthBarObject;
 
+    public Animator anim;
+
     //Enemy_Health_Bar healthBar;
     Slider slider;
     public Gradient gradient;
@@ -45,6 +47,14 @@ public class Boss_Health : MonoBehaviour
         {
             case "Player_Sword":
                 loseHealth(15);
+                Debug.Log("Collided");
+                break;
+        }
+
+        switch (other.tag)
+        {
+            case "Good_Ball":
+                anim.SetTrigger("Hit");
                 Debug.Log("Collided");
                 break;
         }

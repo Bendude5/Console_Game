@@ -128,7 +128,7 @@ public class Player_Boss_Movement : MonoBehaviour
         switch (other.tag)
         {
             case "Enemy_Attack":
-                loseHealth();
+                //loseHealth();
                 break;
         }
     }

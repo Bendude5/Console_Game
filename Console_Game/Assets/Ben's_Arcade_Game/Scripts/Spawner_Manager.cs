@@ -14,7 +14,6 @@ public class Spawner_Manager : MonoBehaviour
     public GameObject spawner6;
     public GameObject spawner7;
     public GameObject spawner8;
-    public GameObject spawner9;
 
     void Update()
     {
@@ -26,7 +25,7 @@ public class Spawner_Manager : MonoBehaviour
 
     public void spawnEnemies()
     {
-        spawnerNumber = Random.Range(1, 10);
+        spawnerNumber = Random.Range(1, 9);
 
         if (spawnerNumber == 1)
         {
@@ -66,11 +65,6 @@ public class Spawner_Manager : MonoBehaviour
         if (spawnerNumber == 8)
         {
             spawner8.GetComponent<Enemy_Spawner>().spawnPrefab();
-        }
-
-        if (spawnerNumber == 9)
-        {
-            spawner9.GetComponent<Enemy_Spawner>().spawnPrefab();
         }
     }
 }
