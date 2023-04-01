@@ -12,6 +12,9 @@ public class Enemy_Movement : MonoBehaviour
     public float chaseSpeed;
     public bool canMove;
     public bool isDead;
+
+    public bool isBossEnemy;
+
     public GameObject detectionSphere;
     public GameObject attackSphere;
 
@@ -151,7 +154,10 @@ public class Enemy_Movement : MonoBehaviour
     void enemyDeath()
     {
         Destroy(gameObject);
-        GameObject.Find("Spawner_Manager").GetComponent<Spawner_Manager>().spawnEnemies();
+        if (isBossEnemy == false)
+        {
+            GameObject.Find("Spawner_Manager").GetComponent<Spawner_Manager>().spawnEnemies();
+        }
     }
 
     public void playAttackSound()

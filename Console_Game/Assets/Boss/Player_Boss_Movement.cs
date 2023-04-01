@@ -27,6 +27,10 @@ public class Player_Boss_Movement : MonoBehaviour
     public GameObject heart2;
     public GameObject heart3;
 
+    public bool invulnerable = false;
+    private int invulnerable_Timer = 200;
+    private int invulnerable_Timer_Speed = 0;
+
     public float gravity = 20.0f;
 
     public float speed = 6f;
@@ -121,6 +125,18 @@ public class Player_Boss_Movement : MonoBehaviour
             SceneManager.LoadScene("HUB");
         }
 
+
+        invulnerable_Timer -= invulnerable_Timer_Speed;
+
+        if (invulnerable_Timer <= 0)
+        {
+            invulnerable_Timer = 200;
+            invulnerable_Timer_Speed = 0;
+            invulnerable = false;
+            Debug.Log("No Longer Invulnerable");
+
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -128,7 +144,7 @@ public class Player_Boss_Movement : MonoBehaviour
         switch (other.tag)
         {
             case "Enemy_Attack":
-                //loseHealth();
+                loseHealth();
                 break;
         }
     }
@@ -141,8 +157,15 @@ public class Player_Boss_Movement : MonoBehaviour
 
     public void loseHealth()
     {
-        audioSource.PlayOneShot(damageSound);
-        health -= 1;
+        if (invulnerable == false)
+        {
+            audioSource.PlayOneShot(damageSound);
+            health -= 1;
+
+            invulnerable = true;
+
+            invulnerable_Timer_Speed = 1;
+        }
     }
 
     public void endAttack()

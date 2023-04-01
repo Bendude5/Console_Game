@@ -26,6 +26,14 @@ public class Boss_Health : MonoBehaviour
         SetMaxHealth(maxHealth);
     }
 
+    void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            anim.SetBool("Death", true);
+        }
+    }
+
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
@@ -60,7 +68,7 @@ public class Boss_Health : MonoBehaviour
         }
     }
 
-    void loseHealth(int damage)
+    public void loseHealth(int damage)
     {
         currentHealth -= damage;
 

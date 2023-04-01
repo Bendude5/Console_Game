@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Cutscene : MonoBehaviour
 {
     Console_Game playerControls;
+    public string sceneLoad;
 
     void Awake()
     {
@@ -43,6 +44,6 @@ public class Cutscene : MonoBehaviour
     //This function does exactly what it says it does
     public void finishCutscene()
     {
-        SceneManager.LoadScene("HUB");
+        SceneManager.LoadScene(sceneLoad);
     }
 }
