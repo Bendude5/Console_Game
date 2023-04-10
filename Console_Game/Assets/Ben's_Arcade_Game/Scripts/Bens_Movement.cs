@@ -29,9 +29,9 @@ public class Bens_Movement : MonoBehaviour
 
     public int keys;
 
-    public GameObject key1;
-    public GameObject key2;
-    public GameObject key3;
+    //public GameObject key1;
+    //public GameObject key2;
+    //public GameObject key3;
 
     public float gravity = 20.0f;
 
@@ -143,33 +143,33 @@ public class Bens_Movement : MonoBehaviour
 
 
 
-        if (keys == 0)
-        {
-            key1.SetActive(false);
-            key2.SetActive(false);
-            key3.SetActive(false);
-        }
+        //if (keys == 0)
+        //{
+        //    key1.SetActive(false);
+        //    key2.SetActive(false);
+        //    key3.SetActive(false);
+        //}
 
-        if (keys == 1)
-        {
-            key1.SetActive(true);
-            key2.SetActive(false);
-            key3.SetActive(false);
-        }
+        //if (keys == 1)
+        //{
+        //    key1.SetActive(true);
+        //    key2.SetActive(false);
+        //    key3.SetActive(false);
+        //}
 
-        if (keys == 2)
-        {
-            key1.SetActive(true);
-            key2.SetActive(true);
-            key3.SetActive(false);
-        }
+        //if (keys == 2)
+        //{
+        //    key1.SetActive(true);
+        //    key2.SetActive(true);
+        //    key3.SetActive(false);
+        //}
 
-        if (keys == 3)
-        {
-            key1.SetActive(true);
-            key2.SetActive(true);
-            key3.SetActive(true);
-        }
+        //if (keys == 3)
+        //{
+        //    key1.SetActive(true);
+        //    key2.SetActive(true);
+        //    key3.SetActive(true);
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
