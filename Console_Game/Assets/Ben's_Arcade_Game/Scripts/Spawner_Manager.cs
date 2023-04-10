@@ -19,10 +19,10 @@ public class Spawner_Manager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            this.spawnEnemies();
-        }
+        //if (Input.GetKeyDown(KeyCode.E))
+        //{
+        //    this.spawnEnemies();
+        //}
     }
 
     public void spawnEnemies()
