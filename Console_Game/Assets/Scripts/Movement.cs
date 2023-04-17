@@ -87,7 +87,7 @@ public class Movement : MonoBehaviour
             Vector3 gravityMove = new Vector3(0, verticalSpeed, 0);
             controller.Move(gravityMove * Time.deltaTime);
 
-            if (direction.magnitude >= 0.1f)
+            if (direction.magnitude >= 1f)
             {
                 float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
