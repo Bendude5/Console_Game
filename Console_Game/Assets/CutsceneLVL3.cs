@@ -8,6 +8,8 @@ public class CutsceneLVL3 : MonoBehaviour
     public Camera mainCam;
     public Camera introCam;
 
+    public GameObject UI;
+
     public Animator anim;
 
     Console_Game playerControls;
@@ -37,6 +39,7 @@ public class CutsceneLVL3 : MonoBehaviour
         anim.Play("Scene 3 Intro", 0, 0);
         mainCam.gameObject.SetActive(false);
         introCam.gameObject.SetActive(true);
+        UI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -53,5 +56,6 @@ public class CutsceneLVL3 : MonoBehaviour
     {
         mainCam.gameObject.SetActive(true);
         introCam.gameObject.SetActive(false);
+        UI.SetActive(true);
     }
 }

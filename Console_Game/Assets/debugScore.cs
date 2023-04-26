@@ -5,18 +5,18 @@ using TMPro;
 
 public class debugScore : MonoBehaviour
 {
-    public TMP_Text testText;
+    //public TMP_Text testText;
 
-    public ProgressManager progress;
+    //public ProgressManager progress;
 
-    void start()
-    {
-        progress.score = 0;
-    }
+    //void start()
+    //{
+    //    progress.score = 0;
+    //}
 
-    void Update()
-    {
-        progress.score++;
-        testText.text = progress.score.ToString();
-    }
+    //void Update()
+    //{
+    //    progress.score++;
+    //    testText.text = progress.score.ToString();
+    //}
 }
