@@ -52190,6 +52190,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
+  - time: 1.8166667
+    functionName: playSoundEffect
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 5
+    messageOptions: 0
   - time: 2
     functionName: spawnRocks
     data: 

@@ -364,7 +364,7 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7b8c65bb-9778-4fbd-b66d-39bfdb8d1b20"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -375,7 +375,7 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3892d636-f35e-430c-bd6c-b5c23cb7ab1c"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -386,7 +386,7 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e0078750-131e-419b-a5ff-a2350a3b5685"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
