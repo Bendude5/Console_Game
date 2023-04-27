@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttatch : MonoBehaviour
+public class Platform : MonoBehaviour
 {
 	public Transform startPoint;
 	public Transform endPoint;
