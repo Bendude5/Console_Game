@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerProgress : MonoBehaviour
 {
     public int health;
 
     public int coins;
+    public bool touchingRock;
 
     public GameObject gameOver;
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
+    public TMP_Text coinText;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,7 @@ public class PlayerProgress : MonoBehaviour
     void Update()
     {
         HealthCheck();
+        coinText.text = coins.ToString();
     }
 
     public void HealthCheck()
@@ -72,8 +76,29 @@ public class PlayerProgress : MonoBehaviour
     {
         if (other.gameObject.tag == "Damage")
         {
+            Debug.Log("Damaged");
             health -= 1;
         }
         
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Rock":
+                touchingRock = true;
+                break;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Rock":
+                touchingRock = false;
+                break;
+        }
     }
 }
