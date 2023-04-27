@@ -10,11 +10,13 @@ public class PlayerProgress : MonoBehaviour
     ThirdPersonController player;
 
     public int health;
+    public float timer = 0;
 
     public int coins;
     public bool touchingRock;
 
     public GameObject gameOver;
+    public GameObject drowning;
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
@@ -32,7 +34,19 @@ public class PlayerProgress : MonoBehaviour
     {
         HealthCheck();
         coinText.text = coins.ToString();
-        if ()
+        if (gameObject.transform.position.y < -0.45 && health > 0)
+        {
+            Debug.Log("Drowning");
+            drowning.SetActive(true);
+            
+            timer++;
+            if (timer == 500)
+            {
+                health -= 1;
+                timer = 0;
+            }
+        }
+        else { drowning.SetActive(false); }
     }
 
     public void HealthCheck()
@@ -40,7 +54,8 @@ public class PlayerProgress : MonoBehaviour
         switch (health)
         {
             case 0:
-                gameOver.SetActive(true);                
+                gameOver.SetActive(true);
+                drowning.SetActive(false);
 
                 heart1.SetActive(false);
                 heart2.SetActive(false);
