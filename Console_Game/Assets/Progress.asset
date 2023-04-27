@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f25a7ff82c3570c44afd2eee2d85e5a3, type: 3}
   m_Name: Progress
   m_EditorClassIdentifier: 
-  score: 0
+  lastLevel: 0
+  level1Complete: 0
+  level2Complete: 0
+  coins: 0

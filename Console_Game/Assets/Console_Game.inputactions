@@ -51,6 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "2818917f-7b3f-4bdb-b430-8d6aa7730f51",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Resume",
                     "type": "Button",
                     "id": "a014078b-4249-4453-bed6-0382fba7c931",
@@ -72,24 +81,6 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "5db7bd4b-3148-4886-b0f9-19c13b91549e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Save",
-                    "type": "Button",
-                    "id": "4a73a08c-48e0-4078-860f-cdc1ed5cb1fa",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Load",
-                    "type": "Button",
-                    "id": "5436fd48-9822-4746-91e0-f2595126d5eb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -374,23 +365,12 @@
                 },
                 {
                     "name": "",
-                    "id": "5860e38d-68a1-4810-8538-5a8bb7133e3f",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "7e7b94e8-3a1c-445f-920d-a02f5c88b7c4",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Save",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "291407a9-8332-4fb9-b488-ca0eb14676d2",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Load",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

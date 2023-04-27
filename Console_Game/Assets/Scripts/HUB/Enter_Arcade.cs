@@ -49,6 +49,7 @@ public class Enter_Arcade : MonoBehaviour
         {
             arcade1.GetComponent<Animator>().SetInteger("Anim_Number", 1);
             player.GetComponent<Movement>().enteringArcade = true;
+            
             Debug.Log("Entered arcade 1");
         }
 

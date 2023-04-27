@@ -15,7 +15,7 @@ public class ThirdPersonController : MonoBehaviour
 
     public float speed = 6f;
     public float jumpSpeed = 0.5f;
-    private float yDir;
+    public float yDir;
 
     public float verticalSpeed = 0f;
     private float gravity = 20f;
@@ -28,7 +28,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         playerControls = new Console_Game();
 
-        playerControls.Player.Interact.performed += ctx => jump();
+        playerControls.Player.Jump.performed += ctx => jump();
     }
 
     void OnEnable()

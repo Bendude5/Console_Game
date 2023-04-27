@@ -10,6 +10,8 @@ public class Load_Scene : MonoBehaviour
 
     public float arcadeDistance;
 
+    ProgressManager progress;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,7 @@ public class Load_Scene : MonoBehaviour
         switch (gameObject.name)
         {
             case "Arcade_Machine_1":
+                //progress.lastLevel = 1;
                 SceneManager.LoadScene("Arcade_Game1");
                 break;
 
@@ -44,6 +47,7 @@ public class Load_Scene : MonoBehaviour
                 break;
 
             case "Arcade_Machine_3":
+                //progress.lastLevel = 2;
                 SceneManager.LoadScene("Arcade_Game3");
                 break;
         }

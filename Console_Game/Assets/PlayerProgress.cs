@@ -6,6 +6,9 @@ using TMPro;
 
 public class PlayerProgress : MonoBehaviour
 {
+    [SerializeField]
+    ThirdPersonController player;
+
     public int health;
 
     public int coins;
@@ -29,6 +32,7 @@ public class PlayerProgress : MonoBehaviour
     {
         HealthCheck();
         coinText.text = coins.ToString();
+        if ()
     }
 
     public void HealthCheck()
@@ -72,17 +76,19 @@ public class PlayerProgress : MonoBehaviour
         SceneManager.LoadScene("HUB");
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Enter");
         if (other.gameObject.tag == "Damage")
         {
             Debug.Log("Damaged");
             health -= 1;
+            player.yDir = 5;
         }
         
     }
 
-    private void OnTriggerStay(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         switch (other.gameObject.tag)
         {
@@ -92,7 +98,7 @@ public class PlayerProgress : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
         switch (other.gameObject.tag)
         {

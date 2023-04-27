@@ -9,6 +9,12 @@ public class Movement : MonoBehaviour
     public CharacterController controller;
     public Animator playerAnim;
     public Camera followCam;
+    ProgressManager progress;
+
+    public GameObject hubSpawn;
+    public GameObject Spawn1;
+    public GameObject Spawn2;
+    public GameObject bossSpawn;
 
     public bool canjump;
 
@@ -33,10 +39,29 @@ public class Movement : MonoBehaviour
 
         playerControls.Player.Interact.performed += ctx => jump();
 
-        //TEST SAVE
-        playerControls.Player.Save.performed += ctx => savePlayer();
-        //TEST LOAD
-        playerControls.Player.Load.performed += ctx => loadPlayer();
+        ////TEST SAVE
+        //playerControls.Player.Save.performed += ctx => savePlayer();
+        ////TEST LOAD
+        //playerControls.Player.Load.performed += ctx => loadPlayer();
+    }
+
+    void Start()
+    {
+        switch(progress.lastLevel)
+        {
+            case 0:
+                gameObject.transform.position = hubSpawn.transform.position;
+                break;
+            case 1:
+                gameObject.transform.position = Spawn1.transform.position;
+                break;
+            case 2:
+                gameObject.transform.position = Spawn2.transform.position;
+                break;
+            case 3:
+                gameObject.transform.position = bossSpawn.transform.position;
+                break;
+        }
     }
 
     void OnEnable()
