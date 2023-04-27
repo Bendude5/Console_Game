@@ -135,8 +135,10 @@ GameObject:
   - component: {fileID: 3388656}
   - component: {fileID: 3388655}
   - component: {fileID: 3388658}
+  - component: {fileID: 3388660}
+  - component: {fileID: 3388659}
   m_Layer: 0
-  m_Name: Machine4
+  m_Name: Boss_Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -201,7 +203,7 @@ Transform:
   m_GameObject: {fileID: 3388654}
   m_LocalRotation: {x: -0.31766546, y: -0.5151688, z: -0.76691234, w: 0.2133899}
   m_LocalPosition: {x: 505.60693, y: -0.09000003, z: 507.4073}
-  m_LocalScale: {x: 271.45435, y: 271.45438, z: 271.45444}
+  m_LocalScale: {x: 271.45435, y: 271.4544, z: 271.4544}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 818973948}
@@ -232,6 +234,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3388659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d6cf1b492b1764ba0de5f36bbd73c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &3388660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0067088013, y: 0.010212837, z: 0.017838528}
+  m_Center: {x: 0.000011028109, y: -0.0028646775, z: 0.009285179}
 --- !u!1 &15231770
 GameObject:
   m_ObjectHideFlags: 0
@@ -102790,12 +102817,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab54537084dff64db14c26682c7e7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progress: {fileID: 11400000, guid: f27762731b0206748816836de10480aa, type: 2}
   arcade1: {fileID: 2023252708}
   arcade2: {fileID: 1873386284}
   arcade3: {fileID: 2128486472}
+  bossArcade: {fileID: 3388654}
   byArcade1: 0
   byArcade2: 0
   byArcade3: 0
+  byBossArcade: 0
   player: {fileID: 8830025924318789206}
 --- !u!114 &8830025924318789211
 MonoBehaviour:

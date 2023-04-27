@@ -5,14 +5,19 @@ using UnityEngine.InputSystem;
 
 public class Enter_Arcade : MonoBehaviour
 {
+    [SerializeField]
+    ProgressManager progress;
+
     Console_Game playerControls;
     public GameObject arcade1;
     public GameObject arcade2;
     public GameObject arcade3;
+    public GameObject bossArcade;
 
     public bool byArcade1;
     public bool byArcade2;
     public bool byArcade3;
+    public bool byBossArcade;
 
     public GameObject player;
 
@@ -47,6 +52,7 @@ public class Enter_Arcade : MonoBehaviour
     {
         if (byArcade1 == true)
         {
+            progress.LastLevel = 1;
             arcade1.GetComponent<Animator>().SetInteger("Anim_Number", 1);
             player.GetComponent<Movement>().enteringArcade = true;
             Debug.Log("Entered arcade 1");
@@ -65,6 +71,16 @@ public class Enter_Arcade : MonoBehaviour
             player.GetComponent<Movement>().enteringArcade = true;
             Debug.Log("Entered arcade 3");
         }
+
+        if (byBossArcade == true)
+        {
+            if(progress.level1Complete && progress.level2Complete)
+            {
+                bossArcade.GetComponent<Animator>().SetInteger("Anim_Number", 1);
+                player.GetComponent<Movement>().enteringArcade = true;
+                Debug.Log("Entered Boss Arcade");
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -81,6 +97,10 @@ public class Enter_Arcade : MonoBehaviour
 
             case "Arcade_Machine_3":
                 byArcade3 = true;
+                break;
+
+            case "Boss_Machine":
+                byBossArcade = true;
                 break;
         }
     }
