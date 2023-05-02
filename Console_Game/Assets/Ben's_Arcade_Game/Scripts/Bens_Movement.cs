@@ -10,8 +10,6 @@ public class Bens_Movement : MonoBehaviour
 
     public CharacterController controller;
 
-    //public Animator playerAnim;
-
     public int health;
 
     public bool canMove;
@@ -29,9 +27,8 @@ public class Bens_Movement : MonoBehaviour
 
     public int keys;
 
-    //public GameObject key1;
-    //public GameObject key2;
-    //public GameObject key3;
+    public GameObject exitPointer;
+    public GameObject exitText;
 
     public float gravity = 20.0f;
 
@@ -95,18 +92,7 @@ public class Bens_Movement : MonoBehaviour
             //Moves the controller
             controller.Move(direction * Time.deltaTime);
 
-            //if (direction.magnitude >= 0.1f)
-            //{
-            //    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            //    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            //    transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            //    //playerAnim.SetFloat("Speed", 1.0f);
-            //    controller.Move(direction * speed * Time.deltaTime);
-            //}
-            //else
-            //{
-            //    //playerAnim.SetFloat("Speed", 0.0f);
-            //}
+
 
         }
 
@@ -140,36 +126,11 @@ public class Bens_Movement : MonoBehaviour
             SceneManager.LoadScene("HUB");
         }
 
-
-
-
-        //if (keys == 0)
-        //{
-        //    key1.SetActive(false);
-        //    key2.SetActive(false);
-        //    key3.SetActive(false);
-        //}
-
-        //if (keys == 1)
-        //{
-        //    key1.SetActive(true);
-        //    key2.SetActive(false);
-        //    key3.SetActive(false);
-        //}
-
-        //if (keys == 2)
-        //{
-        //    key1.SetActive(true);
-        //    key2.SetActive(true);
-        //    key3.SetActive(false);
-        //}
-
-        //if (keys == 3)
-        //{
-        //    key1.SetActive(true);
-        //    key2.SetActive(true);
-        //    key3.SetActive(true);
-        //}
+        if (keys >= 5)
+        {
+            exitPointer.SetActive(true);
+            exitText.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

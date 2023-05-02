@@ -32,11 +32,11 @@ public class Movement : MonoBehaviour
         playerControls = new Console_Game();
 
         playerControls.Player.Interact.performed += ctx => jump();
+    }
 
-        //TEST SAVE
-        playerControls.Player.Save.performed += ctx => savePlayer();
-        //TEST LOAD
-        playerControls.Player.Load.performed += ctx => loadPlayer();
+    void Start()
+    {
+
     }
 
     void OnEnable()
@@ -110,28 +110,5 @@ public class Movement : MonoBehaviour
         {
             yDir = jumpSpeed;
         }
-    }
-
-    //TEST SAVE
-    public void savePlayer()
-    {
-        enteringArcade = false;
-        SaveSystem.savePlayer(this);
-    }
-
-    //TEST LOAD
-    public void loadPlayer()
-    {
-        enteringArcade = true;
-
-        SavePlayerData data = SaveSystem.loadPlayer();
-
-        Vector3 position;
-
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-
-        transform.position = position;
     }
 }

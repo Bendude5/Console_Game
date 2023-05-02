@@ -67,6 +67,7 @@ public class Enter_Arcade : MonoBehaviour
 
         if (byArcade3 == true)
         {
+            progress.LastLevel = 2;
             arcade3.GetComponent<Animator>().SetInteger("Anim_Number", 1);
             player.GetComponent<Movement>().enteringArcade = true;
             Debug.Log("Entered arcade 3");
@@ -76,6 +77,7 @@ public class Enter_Arcade : MonoBehaviour
         {
             if(progress.level1Complete && progress.level2Complete)
             {
+                progress.LastLevel = 3;
                 bossArcade.GetComponent<Animator>().SetInteger("Anim_Number", 1);
                 player.GetComponent<Movement>().enteringArcade = true;
                 Debug.Log("Entered Boss Arcade");
@@ -119,6 +121,10 @@ public class Enter_Arcade : MonoBehaviour
 
             case "Arcade_Machine_3":
                 byArcade3 = false;
+                break;
+
+            case "Boss_Machine":
+                byBossArcade = false;
                 break;
         }
     }

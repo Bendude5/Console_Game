@@ -98,24 +98,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Save"",
-                    ""type"": ""Button"",
-                    ""id"": ""4a73a08c-48e0-4078-860f-cdc1ed5cb1fa"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Load"",
-                    ""type"": ""Button"",
-                    ""id"": ""5436fd48-9822-4746-91e0-f2595126d5eb"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -391,28 +373,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5860e38d-68a1-4810-8538-5a8bb7133e3f"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Save"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""291407a9-8332-4fb9-b488-ca0eb14676d2"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Load"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1008,8 +968,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
         m_Player_Resume = m_Player.FindAction("Resume", throwIfNotFound: true);
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
-        m_Player_Save = m_Player.FindAction("Save", throwIfNotFound: true);
-        m_Player_Load = m_Player.FindAction("Load", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1089,8 +1047,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Resume;
     private readonly InputAction m_Player_Quit;
     private readonly InputAction m_Player_Pause;
-    private readonly InputAction m_Player_Save;
-    private readonly InputAction m_Player_Load;
     public struct PlayerActions
     {
         private @Console_Game m_Wrapper;
@@ -1103,8 +1059,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
         public InputAction @Resume => m_Wrapper.m_Player_Resume;
         public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
-        public InputAction @Save => m_Wrapper.m_Player_Save;
-        public InputAction @Load => m_Wrapper.m_Player_Load;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1138,12 +1092,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
-                @Save.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSave;
-                @Save.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSave;
-                @Save.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSave;
-                @Load.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLoad;
-                @Load.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLoad;
-                @Load.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLoad;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1172,12 +1120,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
-                @Save.started += instance.OnSave;
-                @Save.performed += instance.OnSave;
-                @Save.canceled += instance.OnSave;
-                @Load.started += instance.OnLoad;
-                @Load.performed += instance.OnLoad;
-                @Load.canceled += instance.OnLoad;
             }
         }
     }
@@ -1342,8 +1284,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
         void OnResume(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
-        void OnSave(InputAction.CallbackContext context);
-        void OnLoad(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

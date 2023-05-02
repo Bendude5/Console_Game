@@ -46,6 +46,10 @@ public class Load_Scene : MonoBehaviour
             case "Arcade_Machine_3":
                 SceneManager.LoadScene("Arcade_Game3");
                 break;
+
+            case "Boss_Machine":
+                SceneManager.LoadScene("Boss_Cutscene");
+                break;
         }
     }
 }

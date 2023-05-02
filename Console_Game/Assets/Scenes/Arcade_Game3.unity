@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.66621685, g: 0.8827709, b: 0.8857476, a: 1}
+  m_IndirectSpecularColor: {r: 0.66624004, g: 0.8827701, b: 0.88574517, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1554,7 +1554,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103470275}
-  m_LocalRotation: {x: 0.19825962, y: -0.2259727, z: 0.047031265, w: 0.9525847}
+  m_LocalRotation: {x: 0.19825962, y: -0.22597273, z: 0.047031276, w: 0.9525847}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -14120,7 +14120,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037123726}
-  m_LocalRotation: {x: 0.21550827, y: -0.22508231, z: 0.051123, w: 0.9488312}
+  m_LocalRotation: {x: 0.21550827, y: -0.22508232, z: 0.051123004, w: 0.9488312}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -23888,6 +23888,7 @@ GameObject:
   - component: {fileID: 1755833408}
   - component: {fileID: 1755833407}
   - component: {fileID: 1755833414}
+  - component: {fileID: 1755833415}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -24025,14 +24026,6 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 5db7bd4b-3148-4886-b0f9-19c13b91549e
     m_ActionName: Player/Pause[/DualShock4GamepadHID/leftTrigger]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4a73a08c-48e0-4078-860f-cdc1ed5cb1fa
-    m_ActionName: Player/Save
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5436fd48-9822-4746-91e0-f2595126d5eb
-    m_ActionName: Player/Load
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -24116,6 +24109,20 @@ MonoBehaviour:
   verticalSpeed: 0
   rotationspeed: 90
   turnSmoothTime: 0.1
+--- !u!114 &1755833415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755833406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d85ac9cb2bb44444a51af75febd1241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progress: {fileID: 11400000, guid: f27762731b0206748816836de10480aa, type: 2}
+  inHUB: 0
 --- !u!1 &1762931318
 GameObject:
   m_ObjectHideFlags: 0
@@ -25010,7 +25017,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821426454}
-  m_LocalRotation: {x: 0.21550827, y: -0.2250823, z: 0.051122997, w: 0.9488312}
+  m_LocalRotation: {x: 0.21550827, y: -0.22508232, z: 0.051123, w: 0.9488312}
   m_LocalPosition: {x: 5.365595, y: 4.8282, z: -16.591253}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
