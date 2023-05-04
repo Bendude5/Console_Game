@@ -22,6 +22,7 @@ public class Collectible : MonoBehaviour
         }
         else if (gameObject.tag == "Goal")
         {
+            Destroy(gameObject);
             winScreen.SetActive(true);
             Invoke("WinScreen", 3);
         }
