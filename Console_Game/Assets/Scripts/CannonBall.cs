@@ -19,7 +19,7 @@ public class CannonBall : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Reset();
+            Explode();
         }
     }
 }

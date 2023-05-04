@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoulderPush : MonoBehaviour
 {
     public GameObject lava;
+    public GameObject rockBase;
     public Animator anim;
 
     void Start()
@@ -12,13 +13,19 @@ public class BoulderPush : MonoBehaviour
         anim.enabled = false;
     }
 
-    public void PlayAnim()
-    {
-        anim.enabled = true;
-    }
-
     public void LavaBlock()
     {
         lava.SetActive(false);
+        rockBase.SetActive(true);
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            anim.enabled = true;
+
+        }
+    }
+
 }

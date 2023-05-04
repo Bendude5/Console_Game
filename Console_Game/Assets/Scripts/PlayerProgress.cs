@@ -93,7 +93,6 @@ public class PlayerProgress : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter");
         if (other.gameObject.tag == "Damage")
         {
             Debug.Log("Damaged");
