@@ -12,6 +12,7 @@ public class ThirdPersonController : MonoBehaviour
     public BoulderPush boulder;
 
     public bool canjump;
+    public bool byRock;
 
     public float speed = 6f;
     public float jumpSpeed = 0.5f;
@@ -29,6 +30,7 @@ public class ThirdPersonController : MonoBehaviour
         playerControls = new Console_Game();
 
         playerControls.Player.Jump.performed += ctx => jump();
+       // playerControls.Player.Interact.performed += ctx => Interact();
     }
 
     void OnEnable()
@@ -49,7 +51,7 @@ public class ThirdPersonController : MonoBehaviour
 
             Vector3 direction = Quaternion.Euler(0, followCam.transform.eulerAngles.y, 0) * new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (controller.isGrounded)
+            if (controller.isGrounded)
             {
                 verticalSpeed = 0;
                 yDir = 0f;
@@ -100,6 +102,26 @@ public class ThirdPersonController : MonoBehaviour
             yDir = jumpSpeed;
         }
     }
+
+    public void Interact()
+    {
+        if (byRock)
+        {
+            boulder.PlayAnim();
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        switch (other.name)
+        {
+            case "Push Rock":
+                byRock = true;
+                break;
+        }
+    }
+
+
 }
 
 

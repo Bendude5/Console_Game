@@ -343,6 +343,17 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4bf9e93e-4b34-4608-9992-b2ad31fc6340"",
+                    ""path"": ""<Keyboard>/#(E)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""20f985b7-4499-444a-9071-5441d3609809"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
