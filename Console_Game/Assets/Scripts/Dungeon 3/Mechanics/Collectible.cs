@@ -24,13 +24,13 @@ public class Collectible : MonoBehaviour
         {
             Destroy(gameObject);
             winScreen.SetActive(true);
-            Invoke("WinScreen", 3);
+            Invoke("WinScreen", 2.0f);
         }
     }
 
     public void WinScreen()
     {
-        progressGame.level2Complete= true;
+        progressGame.level2Complete = true;
         SceneManager.LoadScene("HUB");
         //saves player coin progress to scriptable object
         progressGame.coins += progressPlayer.coins;

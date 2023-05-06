@@ -73,15 +73,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""2818917f-7b3f-4bdb-b430-8d6aa7730f51"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Resume"",
                     ""type"": ""Button"",
                     ""id"": ""a014078b-4249-4453-bed6-0382fba7c931"",
@@ -103,6 +94,15 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""5db7bd4b-3148-4886-b0f9-19c13b91549e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b7d64d4-1701-49ac-a702-2fb95f601330"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -333,18 +333,7 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d4d68ea3-8406-49d9-b928-30cdbeb48f25"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4bf9e93e-4b34-4608-9992-b2ad31fc6340"",
-                    ""path"": ""<Keyboard>/#(E)"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -366,7 +355,7 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7b8c65bb-9778-4fbd-b66d-39bfdb8d1b20"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -377,7 +366,7 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3892d636-f35e-430c-bd6c-b5c23cb7ab1c"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -388,7 +377,7 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e0078750-131e-419b-a5ff-a2350a3b5685"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -398,7 +387,7 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7e7b94e8-3a1c-445f-920d-a02f5c88b7c4"",
+                    ""id"": ""500bd9b5-85f0-4c95-a4c2-e4c035234eba"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -996,10 +985,10 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Resume = m_Player.FindAction("Resume", throwIfNotFound: true);
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1076,10 +1065,10 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Attack;
-    private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Resume;
     private readonly InputAction m_Player_Quit;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_Jump;
     public struct PlayerActions
     {
         private @Console_Game m_Wrapper;
@@ -1089,10 +1078,10 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Resume => m_Wrapper.m_Player_Resume;
         public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1117,9 +1106,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Resume.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResume;
                 @Resume.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResume;
                 @Resume.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResume;
@@ -1129,6 +1115,9 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1148,9 +1137,6 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
                 @Resume.started += instance.OnResume;
                 @Resume.performed += instance.OnResume;
                 @Resume.canceled += instance.OnResume;
@@ -1160,6 +1146,9 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -1321,10 +1310,10 @@ public partial class @Console_Game : IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
         void OnResume(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -15,6 +15,9 @@ public class PlayerProgress : MonoBehaviour
     public int coins;
     public bool touchingRock;
 
+    public AudioSource audioSource;
+    public AudioClip damageSound;
+
     public GameObject gameOver;
     public GameObject drowning;
     public GameObject heart1;
@@ -61,21 +64,21 @@ public class PlayerProgress : MonoBehaviour
                 heart2.SetActive(false);
                 heart3.SetActive(false);
                 
-                Invoke("GameOver", 3);
+                //Invoke("GameOver", 3);
                 break;
 
             case 1:
-                heart1.SetActive(true);
+                heart1.SetActive(false);
 
                 heart2.SetActive(false);
-                heart3.SetActive(false);
+                heart3.SetActive(true);
                 break;
 
             case 2:
-                heart1.SetActive(true);
+                heart1.SetActive(false);
                 heart2.SetActive(true);
 
-                heart3.SetActive(false);
+                heart3.SetActive(true);
                 break;
 
             case 3:
@@ -86,19 +89,28 @@ public class PlayerProgress : MonoBehaviour
         }
     }
 
-    public void GameOver()
-    {
-        SceneManager.LoadScene("HUB");
-    }
+    //public void GameOver()
+    //{
+    //    SceneManager.LoadScene("HUB");
+    //}
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Damage")
         {
+            audioSource.PlayOneShot(damageSound);
             Debug.Log("Damaged");
             health -= 1;
             player.yDir = 5;
-        }        
+        }
+
+        switch (other.tag)
+        {
+            case "Enemy_Attack":
+                audioSource.PlayOneShot(damageSound);
+                health -= 1;
+                break;
+        }
     }
 
     public void OnTriggerStay(Collider other)

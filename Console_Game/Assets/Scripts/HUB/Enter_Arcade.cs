@@ -5,14 +5,19 @@ using UnityEngine.InputSystem;
 
 public class Enter_Arcade : MonoBehaviour
 {
+    [SerializeField]
+    ProgressManager progress;
+
     Console_Game playerControls;
     public GameObject arcade1;
     public GameObject arcade2;
-    public GameObject arcade3;
+    //public GameObject arcade3;
+    public GameObject bossArcade;
 
     public bool byArcade1;
     public bool byArcade2;
-    public bool byArcade3;
+    //public bool byArcade3;
+    public bool byBossArcade;
 
     public GameObject player;
 
@@ -47,6 +52,7 @@ public class Enter_Arcade : MonoBehaviour
     {
         if (byArcade1 == true)
         {
+            progress.lastLevel = 1;
             arcade1.GetComponent<Animator>().SetInteger("Anim_Number", 1);
             player.GetComponent<Movement>().enteringArcade = true;
             
@@ -55,16 +61,28 @@ public class Enter_Arcade : MonoBehaviour
 
         if (byArcade2 == true)
         {
+            progress.lastLevel = 2;
             arcade2.GetComponent<Animator>().SetInteger("Anim_Number", 1);
             player.GetComponent<Movement>().enteringArcade = true;
             Debug.Log("Entered arcade 2");
         }
 
-        if (byArcade3 == true)
+        //if (byArcade3 == true)
+        //{
+        //    arcade3.GetComponent<Animator>().SetInteger("Anim_Number", 1);
+        //    player.GetComponent<Movement>().enteringArcade = true;
+        //    Debug.Log("Entered arcade 3");
+        //}
+
+        if (byBossArcade == true)
         {
-            arcade3.GetComponent<Animator>().SetInteger("Anim_Number", 1);
-            player.GetComponent<Movement>().enteringArcade = true;
-            Debug.Log("Entered arcade 3");
+            if(progress.level1Complete && progress.level2Complete)
+            {
+                progress.lastLevel = 3;
+                bossArcade.GetComponent<Animator>().SetInteger("Anim_Number", 1);
+                player.GetComponent<Movement>().enteringArcade = true;
+                Debug.Log("Entered Boss Arcade");
+            }
         }
     }
 
@@ -80,8 +98,12 @@ public class Enter_Arcade : MonoBehaviour
                 byArcade2 = true;
                 break;
 
-            case "Arcade_Machine_3":
-                byArcade3 = true;
+            //case "Arcade_Machine_3":
+            //    byArcade3 = true;
+            //    break;
+
+            case "Boss_Machine":
+                byBossArcade = true;
                 break;
         }
     }
@@ -98,8 +120,12 @@ public class Enter_Arcade : MonoBehaviour
                 byArcade2 = false;
                 break;
 
-            case "Arcade_Machine_3":
-                byArcade3 = false;
+            //case "Arcade_Machine_3":
+            //    byArcade3 = false;
+            //    break;
+
+            case "Boss_Machine":
+                byBossArcade = false;
                 break;
         }
     }

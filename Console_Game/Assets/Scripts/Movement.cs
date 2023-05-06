@@ -9,12 +9,6 @@ public class Movement : MonoBehaviour
     public CharacterController controller;
     public Animator playerAnim;
     public Camera followCam;
-    ProgressManager progress;
-
-    public GameObject hubSpawn;
-    public GameObject Spawn1;
-    public GameObject Spawn2;
-    public GameObject bossSpawn;
 
     public bool canjump;
 
@@ -33,35 +27,21 @@ public class Movement : MonoBehaviour
 
     public bool enteringArcade;
 
+    public bool jumpButtonPressed;
+    //public bool jumpButtonDown;
+
     void Awake()
     {
         playerControls = new Console_Game();
 
-        playerControls.Player.Interact.performed += ctx => jump();
-
-        ////TEST SAVE
-        //playerControls.Player.Save.performed += ctx => savePlayer();
-        ////TEST LOAD
-        //playerControls.Player.Load.performed += ctx => loadPlayer();
+        //playerControls.Player.Jump.performed += ctx => jump();
+        playerControls.Player.Jump.performed += ctx => jumpButtonPressed = true;
+        playerControls.Player.Jump.canceled += ctx => jumpButtonPressed = false;
     }
 
     void Start()
     {
-        switch(progress.lastLevel)
-        {
-            case 0:
-                gameObject.transform.position = hubSpawn.transform.position;
-                break;
-            case 1:
-                gameObject.transform.position = Spawn1.transform.position;
-                break;
-            case 2:
-                gameObject.transform.position = Spawn2.transform.position;
-                break;
-            case 3:
-                gameObject.transform.position = bossSpawn.transform.position;
-                break;
-        }
+
     }
 
     void OnEnable()
@@ -96,6 +76,18 @@ public class Movement : MonoBehaviour
                     jump();
                     //yDir = jumpSpeed;
                 }
+
+                if (jumpButtonPressed == true)
+                {
+                    jump();
+                }
+
+                //if (Input.GetButton("Jump"))
+                //{
+                //    jump();
+                //    //yDir = jumpSpeed;
+                //}
+
             }
             else
             {
@@ -135,28 +127,5 @@ public class Movement : MonoBehaviour
         {
             yDir = jumpSpeed;
         }
-    }
-
-    //TEST SAVE
-    public void savePlayer()
-    {
-        enteringArcade = false;
-        SaveSystem.savePlayer(this);
-    }
-
-    //TEST LOAD
-    public void loadPlayer()
-    {
-        enteringArcade = true;
-
-        SavePlayerData data = SaveSystem.loadPlayer();
-
-        Vector3 position;
-
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
-
-        transform.position = position;
     }
 }

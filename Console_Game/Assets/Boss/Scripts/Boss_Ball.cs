@@ -59,10 +59,7 @@ public class Boss_Ball : MonoBehaviour
                 }
                 break;
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
         switch (other.tag)
         {
             case "Player":
@@ -74,4 +71,18 @@ public class Boss_Ball : MonoBehaviour
                 break;
         }
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    switch (other.tag)
+    //    {
+    //        case "Player":
+    //            if (isBad == true)
+    //            {
+    //                GameObject.Find("Player").GetComponent<Player_Boss_Movement>().loseHealth();
+    //                Destroy(gameObject);
+    //            }
+    //            break;
+    //    }
+    //}
 }
