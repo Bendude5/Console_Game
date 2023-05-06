@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: c7e1791fdc7325e4b955e0fb204241c4, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d3c34dcc6a8ab57488f9094ba38e6833, type: 2}
 --- !u!1 &3388654
 GameObject:
   m_ObjectHideFlags: 0
@@ -5593,7 +5593,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 87
   m_IsActive: 1
 --- !u!154 &72408342
 TerrainCollider:
@@ -39275,7 +39275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041254376}
   m_LocalRotation: {x: -0, y: -0.99990094, z: -0, w: 0.0140808225}
-  m_LocalPosition: {x: -9.81, y: -0.009999774, z: -19.75}
+  m_LocalPosition: {x: -9.8, y: -0.009999774, z: -17.79}
   m_LocalScale: {x: 1, y: 0.5341973, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106109,7 +106109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8891368733591822327}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106360,7 +106360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8519522537801578252}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0.117, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
