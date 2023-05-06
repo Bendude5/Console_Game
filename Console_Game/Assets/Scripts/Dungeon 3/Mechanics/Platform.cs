@@ -25,11 +25,19 @@ public class Platform : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Player")
+		{
 			cc = other.GetComponent<CharacterController>();
+			Debug.Log("platform enter");
+		}
+		
 	}
 	private void OnTriggerStay(Collider other)
 	{
 		if (other.tag == "Player")
+		{
 			cc.Move(rb.velocity * Time.deltaTime);
+			Debug.Log("platform Stay");
+		}
+		
 	}
 }
