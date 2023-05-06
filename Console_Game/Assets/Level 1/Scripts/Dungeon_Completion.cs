@@ -8,6 +8,8 @@ public class Dungeon_Completion : MonoBehaviour
     [SerializeField]
     ProgressManager progress;
 
+    public GameObject winScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +29,7 @@ public class Dungeon_Completion : MonoBehaviour
             case "Player":
                 if(GameObject.Find("Player").GetComponent<Bens_Movement>().keys >= 5)
                 {
-                    progress.level1Complete = true;
-                    SceneManager.LoadScene("HUB");
+                    winScreen.SetActive(true);
                 }
                 break;
         }

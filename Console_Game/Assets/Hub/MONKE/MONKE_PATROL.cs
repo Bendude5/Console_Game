@@ -125,7 +125,7 @@ public class MONKE_PATROL : MonoBehaviour
 
         if (monkeyNumber == 3)
         {
-            text.GetComponent<TextMeshProUGUI>().text = "This one looks scary! It looks like it has 3 seals, perhaps the other machines are creating them!";
+            text.GetComponent<TextMeshProUGUI>().text = "This one looks scary! It looks like it has 2 seals, perhaps the other machines are creating them!";
         }
 
         if (monkeyNumber == 4)
@@ -141,6 +141,11 @@ public class MONKE_PATROL : MonoBehaviour
         if (monkeyNumber == 6)
         {
             text.GetComponent<TextMeshProUGUI>().text = "What a lovely day";
+        }
+
+        if (monkeyNumber == 7)
+        {
+            text.GetComponent<TextMeshProUGUI>().text = "Some nasty goblins from the other machines came into this one! Be careful in there, there are no weapons!";
         }
     }
 }

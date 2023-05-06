@@ -14,6 +14,8 @@ public class Bens_Movement : MonoBehaviour
 
     public bool canMove;
 
+    public GameObject gameOver;
+
     public Animator anim;
 
     public AudioSource audioSource;
@@ -123,7 +125,7 @@ public class Bens_Movement : MonoBehaviour
             heart1.SetActive(false);
             heart2.SetActive(false);
             heart3.SetActive(false);
-            SceneManager.LoadScene("HUB");
+            gameOver.SetActive(true);
         }
 
         if (keys >= 5)

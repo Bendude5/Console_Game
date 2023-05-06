@@ -47,30 +47,24 @@ public class Spawn_Player : MonoBehaviour
 
     void Awake()
     {
-        
-            switch (progress.LastLevel)
-            {
-                case 0:
-                    Player.transform.position = spawnEnter.transform.position;
-                    Debug.Log("Main Spawn");
-                    break;
-                case 1:
-                    Player.transform.position = spawnLevel1.transform.position;
-                    Debug.Log("Arcade 1");
-                    break;
-                case 2:
-                    Player.transform.position = spawnLevel2.transform.position;
-                    Debug.Log("Arcade 2");
-                    break;
-                case 3:
-                    Player.transform.position = spawnBoss.transform.position;
-                    Debug.Log("Boss Area");
-                    break;
-
-            }
-        
+        switch (progress.lastLevel)
+        {
+            case 0:
+                Player.transform.position = spawnEnter.transform.position;
+                Debug.Log("Main Spawn");
+                break;
+            case 1:
+                Player.transform.position = spawnLevel1.transform.position;
+                Debug.Log("Arcade 1");
+                break;
+            case 2:
+                Player.transform.position = spawnLevel2.transform.position;
+                Debug.Log("Arcade 2");
+                break;
+            case 3:
+                Player.transform.position = spawnBoss.transform.position;
+                Debug.Log("Boss Area");
+                break;
+        }
     }
- 
-      
-    
 }

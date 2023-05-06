@@ -25,11 +25,15 @@ public class ThirdPersonController : MonoBehaviour
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
+    public bool jumpButtonPressed;
+
     void Awake()
     {
         playerControls = new Console_Game();
 
-        playerControls.Player.Jump.performed += ctx => jump();
+        //playerControls.Player.Jump.performed += ctx => jump();
+        playerControls.Player.Jump.performed += ctx => jumpButtonPressed = true;
+        playerControls.Player.Jump.canceled += ctx => jumpButtonPressed = false;
     }
 
     void OnEnable()
@@ -44,54 +48,58 @@ public class ThirdPersonController : MonoBehaviour
 
     void Update()
     {
-        
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-            Vector3 direction = Quaternion.Euler(0, followCam.transform.eulerAngles.y, 0) * new Vector3(horizontal, 0f, vertical).normalized;
+        Vector3 direction = Quaternion.Euler(0, followCam.transform.eulerAngles.y, 0) * new Vector3(horizontal, 0f, vertical).normalized;
 
         if (controller.isGrounded)
-            {
-                verticalSpeed = 0;
-                yDir = 0f;
-                Debug.Log("grounded");
-                canjump = true;
+        {
+            verticalSpeed = 0;
+            yDir = 0f;
+            Debug.Log("grounded");
+            canjump = true;
 
-                if (Input.GetKey("space"))
-                {
-                    jump();
-                    //yDir = jumpSpeed;
-                }
-            }
-            else
+            if (Input.GetKey("space"))
             {
-                canjump = false;
-                verticalSpeed -= gravity * Time.deltaTime;
-                Debug.Log("not grounded");
+                jump();
+                //yDir = jumpSpeed;
             }
 
-
-            yDir += Physics.gravity.y * Time.deltaTime;
-            direction.y = yDir;
-
-
-            Vector3 gravityMove = new Vector3(0, verticalSpeed, 0);
-            controller.Move(gravityMove * Time.deltaTime);
-
-            if (direction.magnitude >= 1f)
+            if (jumpButtonPressed == true)
             {
-                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-                transform.rotation = Quaternion.Euler(0f, angle, 0f);
-                playerAnim.SetFloat("Speed", 1.0f);
-
-                controller.Move(direction * speed * Time.deltaTime);
-
+                jump();
             }
-            else
-            {
-                playerAnim.SetFloat("Speed", 0.0f);
-            }        
+        }
+        else
+        {
+            canjump = false;
+            verticalSpeed -= gravity * Time.deltaTime;
+            Debug.Log("not grounded");
+        }
+
+
+        yDir += Physics.gravity.y * Time.deltaTime;
+        direction.y = yDir;
+
+
+        Vector3 gravityMove = new Vector3(0, verticalSpeed, 0);
+        controller.Move(gravityMove * Time.deltaTime);
+
+        if (direction.magnitude >= 1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            playerAnim.SetFloat("Speed", 1.0f);
+
+            controller.Move(direction * speed * Time.deltaTime);
+
+        }
+        else
+        {
+            playerAnim.SetFloat("Speed", 0.0f);
+        }
     }
 
     public void jump()

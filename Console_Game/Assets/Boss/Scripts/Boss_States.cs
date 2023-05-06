@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss_States : MonoBehaviour
 {
@@ -10,5 +11,10 @@ public class Boss_States : MonoBehaviour
     public void setBossState(int state)
     {
         bossState = state;
+    }
+
+    public void bossDefeated()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }

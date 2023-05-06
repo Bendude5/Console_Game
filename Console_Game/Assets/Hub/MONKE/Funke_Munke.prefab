@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 745c8c9239e15674a8b1b13d4cf2cc64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderRadius: 5
-  wanderTimer: 1
+  wanderRadius: 9
+  wanderTimer: 4
   anim: {fileID: 2178785438541136416}
   byPlayer: 0
   text: {fileID: 2624700726468721545}

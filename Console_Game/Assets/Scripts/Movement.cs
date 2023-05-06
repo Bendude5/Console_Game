@@ -27,11 +27,16 @@ public class Movement : MonoBehaviour
 
     public bool enteringArcade;
 
+    public bool jumpButtonPressed;
+    //public bool jumpButtonDown;
+
     void Awake()
     {
         playerControls = new Console_Game();
 
-        playerControls.Player.Interact.performed += ctx => jump();
+        //playerControls.Player.Jump.performed += ctx => jump();
+        playerControls.Player.Jump.performed += ctx => jumpButtonPressed = true;
+        playerControls.Player.Jump.canceled += ctx => jumpButtonPressed = false;
     }
 
     void Start()
@@ -71,6 +76,18 @@ public class Movement : MonoBehaviour
                     jump();
                     //yDir = jumpSpeed;
                 }
+
+                if (jumpButtonPressed == true)
+                {
+                    jump();
+                }
+
+                //if (Input.GetButton("Jump"))
+                //{
+                //    jump();
+                //    //yDir = jumpSpeed;
+                //}
+
             }
             else
             {
