@@ -60,7 +60,7 @@ public class ThirdPersonController : MonoBehaviour
             Debug.Log("grounded");
             canjump = true;
 
-            if (Input.GetKey("space"))
+            if (Input.GetKey("space") || Input.GetKey(KeyCode.B))
             {
                 jump();
                 //yDir = jumpSpeed;

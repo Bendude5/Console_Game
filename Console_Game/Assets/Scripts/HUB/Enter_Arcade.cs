@@ -32,7 +32,7 @@ public class Enter_Arcade : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.X))
         {
             enterArcade();
         }
