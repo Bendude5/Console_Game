@@ -57,7 +57,7 @@ public class Player_Boss_Movement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Y))
         {
             Attack();
         }
