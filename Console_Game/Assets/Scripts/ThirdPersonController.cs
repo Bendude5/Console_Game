@@ -63,7 +63,7 @@ public class ThirdPersonController : MonoBehaviour
             canjump = true; 
             playerAnim.SetBool("IsJumping", false);
 
-            if (Input.GetKey("space") || Input.GetKey(KeyCode.Y))
+            if (Input.GetKey("space"))
             {
                 jump();
                 //yDir = jumpSpeed;
