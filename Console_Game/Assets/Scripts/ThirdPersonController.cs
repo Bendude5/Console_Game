@@ -10,6 +10,8 @@ public class ThirdPersonController : MonoBehaviour
     public Animator playerAnim;
     public Camera followCam;
     public BoulderPush boulder;
+    public AudioSource jumpAudio;
+    public AudioSource runAudio;
 
     public bool canjump;
     public bool byRock;
@@ -58,9 +60,10 @@ public class ThirdPersonController : MonoBehaviour
             verticalSpeed = 0;
             yDir = 0f;
             Debug.Log("grounded");
-            canjump = true;
+            canjump = true; 
+            playerAnim.SetBool("IsJumping", false);
 
-            if (Input.GetKey("space") || Input.GetKey(KeyCode.B))
+            if (Input.GetKey("space") || Input.GetKey(KeyCode.Y))
             {
                 jump();
                 //yDir = jumpSpeed;
@@ -98,6 +101,7 @@ public class ThirdPersonController : MonoBehaviour
         }
         else
         {
+            runAudio.Play();
             playerAnim.SetFloat("Speed", 0.0f);
         }
     }
@@ -106,6 +110,8 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (canjump == true)
         {
+                jumpAudio.Play();
+                playerAnim.SetBool("IsJumping",true);
             yDir = jumpSpeed;
         }
     }

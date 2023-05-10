@@ -11,17 +11,21 @@ public class Collectible : MonoBehaviour
     [SerializeField]
     ProgressManager progressGame;
 
+    public AudioSource collectSound;
+
     public GameObject winScreen;
 
     private void OnTriggerEnter(Collider other)
     {
         if (gameObject.tag == "Coin")
         {
+            collectSound.Play();
             Destroy(gameObject);
             progressPlayer.coins += 1;
         }
         else if (gameObject.tag == "Goal")
         {
+            collectSound.Play();
             Destroy(gameObject);
             winScreen.SetActive(true);
             Invoke("WinScreen", 2.0f);
