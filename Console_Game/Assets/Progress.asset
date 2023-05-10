@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastLevel: 0
   level1Complete: 0
-  level2Complete: 0
+  level2Complete: 1
   coins: 0

@@ -8,11 +8,13 @@ TagManager:
   - Lava
   - Damage
   - Goal
+  - Enemy_Attack
+  - ignore
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ignore
   - Water
   - UI
   - 
