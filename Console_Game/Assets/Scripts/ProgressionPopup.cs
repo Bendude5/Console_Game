@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ProgressionPopup : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ProgressionPopup : MonoBehaviour
 
     public GameObject completeIcon2;
     public GameObject incompleteIcon2;
+    public TMP_Text coinsValue;
 
     public GameObject bossSpinner1;
     public GameObject bossSpinner2;
@@ -59,5 +61,7 @@ public class ProgressionPopup : MonoBehaviour
                 bossSpinner2.SetActive(true);
                 break;
         }
+
+        coinsValue.text = progress.coins.ToString();
     }
 }
