@@ -29,6 +29,7 @@ public class Dungeon_Completion : MonoBehaviour
             case "Player":
                 if(GameObject.Find("Player").GetComponent<Bens_Movement>().keys >= 5)
                 {
+                    GameObject.Find("Player").GetComponent<Bens_Movement>().hasWon = true;
                     winScreen.SetActive(true);
                 }
                 break;

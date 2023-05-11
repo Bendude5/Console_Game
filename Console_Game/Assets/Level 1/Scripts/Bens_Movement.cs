@@ -14,6 +14,8 @@ public class Bens_Movement : MonoBehaviour
 
     public bool canMove;
 
+    public bool hasWon;
+
     public GameObject gameOver;
 
     public Animator anim;
@@ -153,8 +155,11 @@ public class Bens_Movement : MonoBehaviour
 
     public void loseHealth()
     {
-        audioSource.PlayOneShot(damageSound);
-        health -= 1;
+        if (hasWon == false)
+        {
+            audioSource.PlayOneShot(damageSound);
+            health -= 1;
+        }
     }
 
     public void addKey()

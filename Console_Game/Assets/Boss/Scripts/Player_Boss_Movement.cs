@@ -27,6 +27,8 @@ public class Player_Boss_Movement : MonoBehaviour
     public GameObject heart2;
     public GameObject heart3;
 
+    public GameObject gameOver;
+
     public bool invulnerable = false;
     private int invulnerable_Timer = 200;
     private int invulnerable_Timer_Speed = 0;
@@ -122,7 +124,7 @@ public class Player_Boss_Movement : MonoBehaviour
             heart1.SetActive(false);
             heart2.SetActive(false);
             heart3.SetActive(false);
-            SceneManager.LoadScene("HUB");
+            gameOver.SetActive(true);
         }
 
 
