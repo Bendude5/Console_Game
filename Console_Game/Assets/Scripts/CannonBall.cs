@@ -19,7 +19,8 @@ public class CannonBall : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Explode();
+            GameObject.Find("Player").GetComponent<PlayerProgress>().health -= 1;
+            Destroy(gameObject);
         }
     }
 }
