@@ -20,7 +20,7 @@ public class CannonBall : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             GameObject.Find("Player").GetComponent<PlayerProgress>().health -= 1;
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }
